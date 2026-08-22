@@ -1,6 +1,8 @@
 export function renderHome(container, collections, openCollection) {
 
     container.innerHTML = `
+        <h1>Deutsche Splielkarten</h1>
+
         <h2>Mis colecciones</h2>
 
         <div class="collection-grid">
@@ -8,7 +10,7 @@ export function renderHome(container, collections, openCollection) {
             ${collections.map(function(collection) {
 
                 return `
-                    <button class="collection-button" data-collection-id="${collection.id}">
+                    <button class="button" data-collection-id="${collection.id}">
 
                         ${collection.icon}
                         ${collection.name}
@@ -22,7 +24,7 @@ export function renderHome(container, collections, openCollection) {
     `;
 
 
-    const buttons = container.querySelectorAll(".collection-button");
+    const buttons = container.querySelectorAll(".button");
 
 
     buttons.forEach(function(button) {
