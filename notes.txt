@@ -1,0 +1,67 @@
+DeutschApp/
+│
+├── index.html
+│
+├── manifest.json
+├── service-worker.js
+│
+├── css/
+│   ├── style.css
+│   ├── base.css
+│   ├── variables.css
+│   │
+│   ├── components/
+│   │   ├── buttons.css
+│   │   ├── cards.css
+│   │   ├── forms.css
+│   │   ├── modal.css
+│   │   └── progress.css
+│   │
+│   └── screens/
+│       ├── home.css
+│       ├── collection.css
+│       ├── practice.css
+│       └── settings.css
+│
+├── js/
+│   ├── app.js
+│   │
+│   ├── data/
+│   │   └── defaultCollections.js
+│   │
+│   ├── db/
+│   │   └── database.js
+│   │
+│   ├── screens/
+│   │   ├── home.js
+│   │   ├── collection.js
+│   │   ├── createCollection.js
+│   │   ├── word.js
+│   │   ├── practice.js
+│   │   ├── results.js
+│   │   └── settings.js
+│   │
+│   ├── components/
+│   │   ├── navbar.js
+│   │   ├── wordCard.js
+│   │   ├── answerButton.js
+│   │   └── modal.js
+│   │
+│   ├── services/
+│   │   ├── collectionService.js
+│   │   ├── wordService.js
+│   │   └── progressService.js
+│   │
+│   ├── utils/
+│   │   ├── random.js
+│   │   ├── questions.js
+│   │   ├── validation.js
+│   │   └── format.js
+│   │
+│   └── state/
+│       └── appState.js
+│
+└── images/
+    ├── fruits/
+    ├── countries/
+    └── animals/

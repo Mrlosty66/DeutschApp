@@ -1,8 +1,8 @@
-export function renderCollection(
-    container,
-    collection,
-    goBack
-) {
+//////////////////////////////////////////////////////////////////////
+//-----------------------Author: Mrlosty66---------------------------//
+/////////////////////////////////////////////////////////////////////
+
+export function renderCollection(container, collection, goBack) {
 
     container.innerHTML = `
         <h2>
@@ -35,14 +35,11 @@ export function renderCollection(
         </div>
 
 
-        <button id="back-button">
-            Volver
-        </button>
+        <button id="back-button"> Volver </button>
     `;
 
 
-    const backButton =
-        document.getElementById("back-button");
+    const backButton = document.getElementById("back-button");
 
 
     backButton.addEventListener("click", function() {
