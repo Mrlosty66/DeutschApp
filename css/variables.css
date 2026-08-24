@@ -1,20 +1,37 @@
 :root {
 
-    --primary-color: #4a7c59;
-    --secondary-color: #eeeeee;
-    --danger-color: #d9534f;
+    /* Colores inspirados en Alemania */
+    --primary-color: #c62828;
+    --primary-color-dark: #a61f1f;
 
-    --text-color: #222222;
-    --background-color: #ffffff;
+    --secondary-color: #f2c94c;
+    --secondary-color-dark: #d9ad35;
 
-    --border-radius: 12px;
+    --accent-color: #2f2f2f;
 
+    --danger-color: #b71c1c;
+
+    /* Texto */
+    --text-color: #242424;
+    --text-light: #666666;
+
+    /* Fondos */
+    --background-color: #fffaf0;
+    --card-color: #ffffff;
+
+    /* Bordes */
+    --border-color: #e3d8c5;
+
+    --border-radius: 16px;
+
+    /* Espaciado */
     --spacing-small: 8px;
     --spacing-medium: 16px;
     --spacing-large: 24px;
 
+    /* Fuentes */
     --font-small: 14px;
     --font-medium: 18px;
-    --font-large: 24px;
+    --font-large: 26px;
 
 }

@@ -2,42 +2,57 @@
 //-----------------------Author: Mrlosty66---------------------------//
 /////////////////////////////////////////////////////////////////////
 
-import { initializeDatabase, getCollections, getCollectionById} from "./db/database.js";
+import { initializeDatabase} from "./db/database.js";
 
 import {renderHome} from "./screens/home.js";
-
-import {renderCollection} from "./screens/collection.js";
 
 
 const contenido = document.getElementById("contenido");
 
+/* =========================
+   Routes
+========================= */
 
-async function showHome() {
+const screens = {
 
-    const collections = await getCollections();
+    home: renderHome
+
+    // createPractice: renderCreatePractice,
+
+    // collections: renderCollections,
+
+    // settings: renderSettings
+
+};
+
+async function navigateTo(
+    screenId,
+    data = {}
+) {
+
+    const screen =
+        screens[screenId];
 
 
-    renderHome(contenido, collections, showCollection);
+    if (!screen) {
 
-}
-
-
-async function showCollection(collectionId) {
-
-    const collection = await getCollectionById(collectionId);
-
-
-    if (!collection) {
+        console.error(
+            "La pantalla no existe:",
+            screenId
+        );
 
         return;
 
     }
 
 
-    renderCollection(contenido, collection, showHome);
+    await screen(
+        contenido,
+        navigateTo,
+        data
+    );
 
 }
-
 
 async function startApp() {
 
@@ -45,9 +60,11 @@ async function startApp() {
 
         await initializeDatabase();
 
-        await showHome();
+
+        await navigateTo("home");
 
     }
+
 
     catch (error) {
 
@@ -55,7 +72,9 @@ async function startApp() {
 
 
         contenido.innerHTML = `
-            <p> No se pudo iniciar la aplicación. </p>
+            <p>
+                No se pudo iniciar la aplicación.
+            </p>
         `;
 
     }

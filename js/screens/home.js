@@ -1,43 +1,49 @@
-export function renderHome(container, collections, openCollection) {
+import {setupNavigation}from "../utils/navigation.js";
+
+export function renderHome(container, navigateTo) {
 
     container.innerHTML = `
-        <h1>Deutsche Splielkarten</h1>
 
-        <h2>Mis colecciones</h2>
+        <div class="home-header">
 
-        <div class="collection-grid">
+            <h1>Deutsche Spielkarten</h1>
 
-            ${collections.map(function(collection) {
+            <div class="german-flag">
+                <div class="flag-black"></div>
+                <div class="flag-red"></div>
+                <div class="flag-gold"></div>
+            </div>
 
-                return `
-                    <button class="button" data-collection-id="${collection.id}">
+        </div>
 
-                        ${collection.icon}
-                        ${collection.name}
+        <div class="home-menu">
 
-                    </button>
-                `;
+            <button
+                class="button"
+                data-screen="createPractice"
+            >
+                Practicar
+            </button>
 
-            }).join("")}
+
+            <button
+                class="button"
+                data-screen="collections"
+            >
+                Colecciones
+            </button>
+
+
+            <button
+                class="button"
+                data-screen="settings"
+            >
+                Ajustes
+            </button>
 
         </div>
     `;
 
-
-    const buttons = container.querySelectorAll(".button");
-
-
-    buttons.forEach(function(button) {
-
-        button.addEventListener("click", function() {
-
-            const collectionId = button.dataset.collectionId;
-
-
-            openCollection(collectionId);
-
-        });
-
-    });
+    setupNavigation(container, navigateTo);
 
 }

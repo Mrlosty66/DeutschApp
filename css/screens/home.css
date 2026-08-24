@@ -1,0 +1,83 @@
+.home-menu {
+    text-align: center;
+
+    background-color: #f4f7ff;
+
+    border: 2px solid #d9e2ff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin: 50px auto;
+
+    max-width: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.home-header {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.home-header h1 {
+
+    color: var(--text-color);
+
+    margin-bottom: 14px;
+
+}
+
+.german-flag {
+
+    width: 80px;
+
+    height: 48px;
+
+    margin: 0 auto;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+}
+
+
+.flag-black {
+
+    height: 33.33%;
+
+    background-color: #1f1f1f;
+
+}
+
+
+.flag-red {
+
+    height: 33.33%;
+
+    background-color: #c62828;
+
+}
+
+
+.flag-gold {
+
+    height: 33.33%;
+
+    background-color: #f2c94c;
+
+}
