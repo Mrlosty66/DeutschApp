@@ -3,7 +3,7 @@ import {defaultCollections} from "../data/defaultCollections.js";
 
 const DB_NAME = "DeutschAppDB";
 
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 
 const COLLECTION_STORE = "collections";
 
@@ -162,5 +162,21 @@ export async function getCollectionById(collectionId) {
 
 
     return collection;
+
+}
+
+export async function addCollection(collection) {
+
+    const database =await openDatabase();
+
+    const transaction = database.transaction(COLLECTION_STORE,"readwrite");
+
+    const store = transaction.objectStore(COLLECTION_STORE);
+
+    store.add(collection);
+
+    await transactionToPromise(transaction);
+    
+    database.close();
 
 }

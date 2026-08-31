@@ -2,9 +2,15 @@
 //-----------------------Author: Mrlosty66---------------------------//
 /////////////////////////////////////////////////////////////////////
 
-import { initializeDatabase} from "./db/database.js";
+import {initializeDatabase} from "./db/database.js";
 
 import {renderHome} from "./screens/home.js";
+
+import {renderCollections} from "./screens/collections.js";
+
+import {renderCollection} from "./screens/collection.js";
+
+import {renderCreateCollection} from "./screens/createCollection.js";
 
 
 const contenido = document.getElementById("contenido");
@@ -15,42 +21,35 @@ const contenido = document.getElementById("contenido");
 
 const screens = {
 
-    home: renderHome
+    home: renderHome,
 
-    // createPractice: renderCreatePractice,
+    collections: renderCollections,
 
-    // collections: renderCollections,
+    collection: renderCollection,
+    
+    createCollection: renderCreateCollection,
+    
+    //editCollection: renderEditCollection
+    
+    //createPractice: renderCreatePractice,
 
-    // settings: renderSettings
+    //settings: renderSettings
 
 };
 
-async function navigateTo(
-    screenId,
-    data = {}
-) {
+async function navigateTo(screenId, data = {}) {
 
-    const screen =
-        screens[screenId];
+    const screen = screens[screenId];
 
 
-    if (!screen) {
-
-        console.error(
-            "La pantalla no existe:",
-            screenId
-        );
+    if (!screen) {console.error("La pantalla no existe:",screenId);
 
         return;
 
     }
 
 
-    await screen(
-        contenido,
-        navigateTo,
-        data
-    );
+    await screen(contenido,navigateTo,data);
 
 }
 
@@ -70,12 +69,7 @@ async function startApp() {
 
         console.error("Error al iniciar la aplicación:", error);
 
-
-        contenido.innerHTML = `
-            <p>
-                No se pudo iniciar la aplicación.
-            </p>
-        `;
+        contenido.innerHTML = `<p>No se pudo iniciar la aplicación.</p>`;
 
     }
 

@@ -30,7 +30,7 @@ export function renderHome(container, navigateTo) {
                 class="button"
                 data-screen="collections"
             >
-                Colecciones
+                Mis Colecciones
             </button>
 
 

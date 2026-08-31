@@ -1,47 +1,129 @@
-export function renderCollection(container, collection, goBack) {
+import {setupNavigation} from "../utils/navigation.js";
+
+import {loadCollection} from "../services/collectionService.js";
+
+import {renderVisual} from "../components/visual.js";
+
+
+export async function renderCollection(container, navigateTo, data) {
+
+    const collectionId = data?.collectionId;
+
+    if (!collectionId) {
+        
+        console.error("No se recibió collectionId.");
+
+        return;
+
+    }
+
+
+    const collection = await loadCollection(collectionId);
+
+    if (!collection) {
+
+        container.innerHTML = `
+
+            <h1> Colección no encontrada </h1>
+
+            <button
+                class="button"
+                data-screen="collections"
+            >
+                Volver
+            </button>
+
+        `;
+
+        setupNavigation(container, navigateTo);
+
+        
+        return;
+
+    }
+
+
+    const wordCount = collection.words.length;
+
+    const wordText = wordCount === 1 ? "palabra" : "palabras";
 
     container.innerHTML = `
-        <h2>
-            ${collection.icon}
-            ${collection.name}
-        </h2>
 
-        <div class="word-list">
+        <div class="collection-page">
 
-            ${collection.words.map(function(word) {
+            <div class="collection-header">
 
-                return `
-                    <p class="word">
+                ${renderVisual(collection, "collection-main-visual")}
 
-                        ${word.emoji}
+                <div>
 
-                        ${word.article}
+                    <h1>${collection.name}</h1>
 
-                        ${word.word}
+                    <p>${wordCount} ${wordText}</p>
 
-                        -
+                </div>
 
-                        ${word.translation}
+            </div>
 
-                    </p>
-                `;
 
-            }).join("")}
+            <div class="word-list">
+
+                ${collection.words.map(function(word) {
+
+                        return `
+
+                            <div class="word-item">
+
+                                ${renderVisual(word, "word-visual")}
+
+                                <div class="word-info">
+
+                                    <strong>
+                                        ${word.article}
+                                        ${word.word}
+                                    </strong>
+
+                                    <span>
+                                        ${word.translation}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+                ).join("")}
+
+            </div>
+
+
+            <button
+                class="button"
+            >
+                + Agregar palabra
+            </button>
+
+
+            <button
+                class="button"
+            >
+                Editar colección
+            </button>
+
+
+            <button
+                class="button"
+                data-screen="collections"
+            >
+                Volver
+            </button>
 
         </div>
-
-
-        <button id="back-button"> Volver </button>
     `;
 
 
-    const backButton = document.getElementById("back-button");
-
-
-    backButton.addEventListener("click", function() {
-
-        goBack();
-
-    });
+    setupNavigation(container, navigateTo);
 
 }

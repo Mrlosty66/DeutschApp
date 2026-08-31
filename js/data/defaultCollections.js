@@ -1,48 +1,88 @@
-//Backup for IndexedDB
-
+/*Activates if indexedDB is empty or doesn't loads*/
 export const defaultCollections = [
 
     {
         id: "frutas",
+
         name: "Frutas",
-        icon: "🍎",
+
+        visualType: "emoji",
+
+        visual: "🍎",
 
         words: [
+
             {
+                id: "apfel",
+
                 article: "der",
+
                 word: "Apfel",
+
                 translation: "manzana",
-                emoji: "🍎"
+
+                visualType: "emoji",
+
+                visual: "🍎"
             },
 
             {
+                id: "banane",
+
                 article: "die",
+
                 word: "Banane",
+
                 translation: "plátano",
-                emoji: "🍌"
+
+                visualType: "emoji",
+
+                visual: "🍌"
             }
+
         ]
     },
 
+
     {
         id: "paises",
+
         name: "Países",
-        icon: "🌎",
+
+        visualType: "emoji",
+
+        visual: "🌎",
 
         words: [
+
             {
+                id: "deutschland",
+
                 article: "",
+
                 word: "Deutschland",
+
                 translation: "Alemania",
-                emoji: "🇩🇪"
+
+                visualType: "image",
+
+                visual: "images/GER.svg"
             },
 
             {
+                id: "mexiko",
+
                 article: "",
+
                 word: "Mexiko",
+
                 translation: "México",
-                emoji: "🇲🇽"
+
+                visualType: "image",
+
+                visual: "images/MEX.jpg"
             }
+
         ]
     }
 

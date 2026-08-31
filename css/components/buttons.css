@@ -36,6 +36,22 @@
 
 }
 
+.collection-button {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items: center;
+
+    gap: var(--spacing-medium);
+
+    text-align: left;
+
+}
 
 .button:hover {
 

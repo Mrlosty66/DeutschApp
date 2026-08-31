@@ -15,7 +15,13 @@
 ========================= */
 @import url("./components/buttons.css");
 
+@import url("./components/visual.css");
+
 /* =========================
    Screens
 ========================= */
 @import url("./screens/home.css");
+
+@import url("./screens/collections.css");
+
+@import url("./screens/collection.css");
