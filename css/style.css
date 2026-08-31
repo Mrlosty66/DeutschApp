@@ -25,3 +25,7 @@
 @import url("./screens/collections.css");
 
 @import url("./screens/collection.css");
+
+@import url("./screens/createCollection.css");
+
+@import url("./screens/editCollection.css");

@@ -12,13 +12,14 @@ import {renderCollection} from "./screens/collection.js";
 
 import {renderCreateCollection} from "./screens/createCollection.js";
 
+import {renderEditCollection} from "./screens/editCollection.js";
+
 
 const contenido = document.getElementById("contenido");
 
 /* =========================
    Routes
 ========================= */
-
 const screens = {
 
     home: renderHome,
@@ -29,7 +30,7 @@ const screens = {
     
     createCollection: renderCreateCollection,
     
-    //editCollection: renderEditCollection
+    editCollection: renderEditCollection,
     
     //createPractice: renderCreatePractice,
 

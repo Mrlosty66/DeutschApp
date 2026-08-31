@@ -107,14 +107,14 @@ export async function renderCollection(container, navigateTo, data) {
 
 
             <button
-                class="button"
+                class="button edit-collection-button"
             >
                 Editar colección
             </button>
 
 
             <button
-                class="button"
+                class="button collection-back-button"
                 data-screen="collections"
             >
                 Volver
@@ -123,7 +123,15 @@ export async function renderCollection(container, navigateTo, data) {
         </div>
     `;
 
-
     setupNavigation(container, navigateTo);
+
+    const editButton = container.querySelector(".edit-collection-button");
+
+    editButton.addEventListener("click", function() {
+
+        navigateTo("editCollection", {collectionId: collection.id});
+
+    }
+    );
 
 }

@@ -53,6 +53,19 @@
 
 }
 
+.collection-back-button {
+    display: block;
+
+    margin: var(--spacing-medium) auto 0;
+    
+}
+
+.edit-collection-back-button {
+    display: block;
+
+    margin: var(--spacing-medium) auto 0;
+}
+
 .button:hover {
 
     background-color: var(--primary-color-dark);

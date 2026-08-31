@@ -180,3 +180,35 @@ export async function addCollection(collection) {
     database.close();
 
 }
+
+export async function updateCollection(collection) {
+
+    const database = await openDatabase();
+
+    const transaction = database.transaction(COLLECTION_STORE, "readwrite");
+
+    const store = transaction.objectStore(COLLECTION_STORE);
+
+    store.put(collection);
+
+    await transactionToPromise(transaction);
+
+    database.close();
+
+}
+
+export async function deleteCollection(collectionId) {
+
+    const database = await openDatabase();
+
+    const transaction = database.transaction(COLLECTION_STORE, "readwrite");
+
+    const store = transaction.objectStore(COLLECTION_STORE);
+
+    store.delete(collectionId);
+
+    await transactionToPromise(transaction);
+
+    database.close();
+
+}
